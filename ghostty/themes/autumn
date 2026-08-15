@@ -1,0 +1,24 @@
+# Autumn (from Autumn.vim: https://github.com/yorickpeterse/Autumn.vim)
+
+background = 232323
+foreground = F3F2CC
+selection-background = 404040
+selection-foreground = F3F2CC
+cursor-color = F3F2CC
+cursor-text = 232323
+palette = 0=212121
+palette = 1=F05E48
+palette = 2=99be70
+palette = 3=FAD566
+palette = 4=86c1b9
+palette = 5=cfba8b
+palette = 6=72a59e
+palette = 7=c8c8c8
+palette = 8=404040
+palette = 9=F05E48
+palette = 10=99be70
+palette = 11=ffff9f
+palette = 12=86c1b9
+palette = 13=cfba8b
+palette = 14=72a59e
+palette = 15=e8e8e8

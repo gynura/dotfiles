@@ -107,6 +107,43 @@ source $ZSH/oh-my-zsh.sh
 #Aliases
 alias ls='colorls --sd'
 alias lc='colorls -lA --sd'
+alias h='hunk'
+
+# Ghostty theme helpers
+alias ghostty-themes='ghostty +list-themes'
+
+__ghostty_config_path() {
+    local cfg="${GHOSTTY_CONFIG:-}"
+    [[ -n "$cfg" && -f "$cfg" ]] && { print -r -- "$cfg"; return; }
+    cfg="$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+    [[ -f "$cfg" ]] && { print -r -- "$cfg"; return; }
+    cfg="${XDG_CONFIG_HOME:-$HOME/.config}/ghostty/config"
+    [[ -f "$cfg" ]] && { print -r -- "$cfg"; return; }
+}
+
+ghostty_theme_change() {
+    local name="$1" cfg available
+    if [[ -z "$name" ]]; then
+        echo "usage: ghostty-theme-change <theme-name>"
+        return 1
+    fi
+    available="$(ghostty +list-themes 2>/dev/null | sed -E 's/ \((resources|user)\)$//')"
+    if ! print -r -- "$available" | grep -qxF "$name"; then
+        echo "error: unknown theme '$name'"
+        echo "available themes:"
+        print -r -- "$available"
+        return 1
+    fi
+    cfg="$(__ghostty_config_path)"
+    [[ -n "$cfg" ]] || { echo "error: ghostty config not found"; return 1; }
+    if grep -q '^theme[[:space:]]*=' "$cfg"; then
+        sed -i '' "s|^theme[[:space:]]*=.*|theme = $name|" "$cfg"
+    else
+        printf 'theme = %s\n' "$name" >> "$cfg"
+    fi
+    echo "ghostty theme set to: $name"
+}
+alias ghostty-theme-change='ghostty_theme_change'
 
 #Spaceship-custom-theme
 export SPACESHIP_CONFIG="$HOME/.config/.spaceshiprc.zsh"
