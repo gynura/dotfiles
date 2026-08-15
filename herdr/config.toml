@@ -1,0 +1,3 @@
+[theme]
+# Follow the host terminal's ANSI palette (Ghostty autumn theme).
+name = "terminal"
