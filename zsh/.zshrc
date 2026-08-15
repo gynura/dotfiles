@@ -1,11 +1,11 @@
 # If you come from bash you might have to change your $PATH.
- export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="spaceship"
@@ -73,40 +73,17 @@ ZSH_THEME="spaceship"
 plugins=(
         git docker docker-compose
         zsh-autosuggestions
-        zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-#Aliases
+# Aliases 
+alias sublt="open -a 'Sublime Text' -e"
 alias ls='colorls --sd'
 alias lc='colorls -lA --sd'
+alias cat='bat --paging=never'
 alias h='hunk'
 
 # Ghostty theme helpers
@@ -145,15 +122,18 @@ ghostty_theme_change() {
 }
 alias ghostty-theme-change='ghostty_theme_change'
 
-#Spaceship-custom-theme
-export SPACESHIP_CONFIG="$HOME/.config/.spaceshiprc.zsh"
-
-# colorls
+# Colorls 
 source $(dirname $(gem which colorls))/tab_complete.sh
 
-# HSTR configuration - add this to ~/.zshrc
-alias hh=hstr                    # hh to be alias for hstr
-setopt histignorespace           # skip cmds w/ leading space from history
-export HSTR_CONFIG=hicolor       # get more colors
-bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
+. "$HOME/.local/bin/env"
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$HOME/go/bin
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# opencode
+export PATH=/Users/gynura/.opencode/bin:$PATH
