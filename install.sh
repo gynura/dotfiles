@@ -78,6 +78,7 @@ link "$HOME/.zshrc" "$REPO_DIR/zsh/.zshrc"
 link "$HOME/Library/Application Support/com.mitchellh.ghostty/config" "$REPO_DIR/ghostty/config.txt"
 link "$HOME/.config/herdr/config.toml" "$REPO_DIR/herdr/config.toml"
 link "$HOME/.config/hunk/config.toml" "$REPO_DIR/hunk/config.toml"
+link "$HOME/.config/colorls/dark_colors.yaml" "$REPO_DIR/colorls/dark_colors.yaml"
 
 echo
 echo "Done. See README.md for what is managed."

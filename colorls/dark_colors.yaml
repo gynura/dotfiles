@@ -1,0 +1,54 @@
+# colorls dark color scheme aligned with the Ghostty "Vague" theme.
+#
+# Basic ANSI color names are used on purpose: colorls renders them as
+# standard 30-37 escape codes, which the terminal maps to its own ANSI
+# palette (Vague). This guarantees the colors match the terminal exactly.
+#
+# Vague palette: https://github.com/mbadolato/iTerm2-Color-Schemes (ghostty/Vague)
+
+# Main Colors
+unrecognized_file: white      # #cdcdcd (Vague foreground)
+recognized_file:   yellow     # #f3be7c
+executable_file:   green      # #7fa563
+dir:               blue       # #6e94b2
+
+# Link
+dead_link: red                # #d8647e
+link:      cyan               # #aeaed1
+
+# special files
+socket:    magenta            # #bb9dbd
+blockdev:  magenta
+chardev:   magenta
+
+# Access Modes
+write:     yellow             # #f3be7c
+read:      green              # #7fa563
+exec:      red                # #d8647e
+no_access: red
+
+# Age
+day_old:     cyan             # #aeaed1
+hour_old:    green            # #7fa563
+no_modifier: green
+
+# File Size
+file_large:  yellow           # #f3be7c
+file_medium: yellow
+file_small:  white            # #cdcdcd
+
+# Random
+report: white
+user:   magenta
+tree:   cyan
+empty:  yellow
+error:  red
+normal: yellow
+inode:  magenta
+
+# Git
+addition:     green           # #7fa563
+modification: yellow          # #f3be7c
+deletion:     red             # #d8647e
+untracked:    yellow
+unchanged:    green
